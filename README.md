@@ -4,15 +4,16 @@ A collection of personal Linux dotfiles for shell, terminal, window managers, st
 
 ## Contents
 
-- **Alacritty**
-- **Fish**
-- **Fuzzel**
-- **Hyprland**
-- **i3**
-- **Niri**
-- **Waybar**
-- home files (`.bashrc`, `.zshrc`, `.xinitrc`)
-- **Tokyonight** GTK/Cinnamon/GNOME Shell themes
+- **Alacritty** — terminal emulator
+- **Fish** — shell configuration, plugins, functions, completions
+- **Fuzzel** — application launcher
+- **Hyprland** — Wayland compositor configuration and scripts
+- **i3** — X11 tiling window manager
+- **Mango** — MangoHud overlay configuration
+- **Niri** — scrollable-tiling Wayland compositor
+- **Waybar** — status bar for Hyprland and Niri
+- **Home files** — `.bashrc`, `.zshrc`, `.xinitrc`
+- **Tokyonight** — GTK/Cinnamon/GNOME Shell themes (Dark & Light, hdpi, xhdpi)
 
 ## Repository Structure
 
@@ -33,14 +34,20 @@ A collection of personal Linux dotfiles for shell, terminal, window managers, st
 │   │   └── fuzzel.ini
 │   ├── hypr/
 │   │   ├── scripts/
+│   │   │   ├── randwall
+│   │   │   └── set_wall
 │   │   ├── autostart.conf
 │   │   ├── environments.conf
 │   │   ├── hyprland.conf
 │   │   └── keybinds.conf
 │   ├── i3/
 │   │   └── config
+│   ├── mango/
+│   │   └── config.conf
 │   ├── niri/
 │   │   ├── scripts/
+│   │   │   ├── restart_screen_share
+│   │   │   └── set_wallpets
 │   │   └── config.kdl
 │   └── waybar/
 │       ├── config-hyprland
@@ -57,60 +64,66 @@ A collection of personal Linux dotfiles for shell, terminal, window managers, st
 │   ├── Tokyonight-Light/
 │   ├── Tokyonight-Light-hdpi/
 │   └── Tokyonight-Light-xhdpi/
-└── install.py
+├── install.py
+└── README.md
 ```
 
 ## Directory Overview
 
 ### `config/`
-Application configuration files that are installed into `~/.config/`.
+Application configuration files installed into `~/.config/`.
 
-- **alacritty/** — Alacritty terminal configuration
-- **fish/** — Fish shell config, plugins, functions, and completions
-- **fuzzel/** — Fuzzel launcher configuration
-- **hypr/** — Hyprland configuration and helper scripts
-- **i3/** — i3 window manager configuration
-- **niri/** — Niri configuration and helper scripts
-- **waybar/** — Waybar configuration for Hyprland and Niri
+| Directory     | Description                                              |
+|---------------|----------------------------------------------------------|
+| `alacritty/`  | Alacritty terminal configuration                         |
+| `fish/`       | Fish shell config, plugins, functions, and completions   |
+| `fuzzel/`     | Fuzzel launcher configuration                            |
+| `hypr/`       | Hyprland configuration and helper scripts                |
+| `i3/`         | i3 window manager configuration                          |
+| `mango/`      | MangoHud configuration                                   |
+| `niri/`       | Niri configuration and helper scripts                    |
+| `waybar/`     | Waybar configuration for Hyprland and Niri               |
 
 ### `home/`
-Files that are copied directly into the home directory:
+Files copied directly into the home directory (`~/`):
 
 - `.bashrc`
 - `.zshrc`
 - `.xinitrc`
 
 ### `themes/`
-Tokyonight themes in dark and light variants, including `hdpi` and `xhdpi` versions.
+Tokyonight themes in Dark and Light variants with hdpi and xhdpi versions.
 
-Theme support includes:
+Supported environments:
 
-- GTK 2
-- GTK 3
-- GTK 4
-- GNOME Shell
-- Cinnamon
-- Metacity
-- Xfwm4
-- Plank
+| Component    |
+|--------------|
+| GTK 2        |
+| GTK 3        |
+| GTK 4        |
+| GNOME Shell  |
+| Cinnamon     |
+| Metacity     |
+| Xfwm4        |
+| Plank        |
 
 ## Installation
 
-The repository includes an `install.py` script that copies:
-
-- `config/*` → `~/.config/`
-- `home/*` → `~/`
-- `themes/*` → `~/.themes/`
-
-Run:
+Run the included `install.py` script:
 
 ```bash
 python3 install.py
 ```
 
-## Manual Installation
+This copies:
 
-If needed, files can be installed manually:
+| Source       | Destination    |
+|--------------|----------------|
+| `config/*`   | `~/.config/`   |
+| `home/*`     | `~/`           |
+| `themes/*`   | `~/.themes/`   |
+
+## Manual Installation
 
 ```bash
 mkdir -p ~/.config ~/.themes
@@ -121,9 +134,9 @@ cp home/.bashrc home/.zshrc home/.xinitrc ~/
 
 ## Notes
 
-- These dotfiles are intended for Linux.
-- Some configurations depend on external applications and utilities being installed.
-- After installation, restarting the shell, Waybar, or window manager may be required.
+- Intended for Linux only.
+- Some configurations require external applications and utilities to be installed.
+- After installation, restart the shell, Waybar, or window manager as needed.
 
 ## License
 
