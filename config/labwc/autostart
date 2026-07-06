@@ -1,0 +1,18 @@
+#!/bin/sh
+# Портировано с ~/.config/hypr/autostart.lua
+
+mkdir -p "$SCREENSHOT_DIR"
+
+# Раскладка мониторов (аналог hypr/monitors.lua)
+kanshi &
+
+# Обои: swww в системе нет, поэтому просто случайная картинка через swaybg
+( sh -c '
+  dir="/mnt/big/bg/wallz/Green Lush"
+  pic=$(find "$dir" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.webp" \) | shuf -n1)
+  [ -n "$pic" ] && exec swaybg -i "$pic" -m fill
+' ) &
+
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+
+waybar -c ~/.config/waybar/config-labwc -s ~/.config/waybar/style-labwc.css &

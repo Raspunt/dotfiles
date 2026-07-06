@@ -7,11 +7,12 @@ A collection of personal Linux dotfiles for shell, terminal, window managers, st
 - **Alacritty** — terminal emulator
 - **Fish** — shell configuration, plugins, functions, completions
 - **Fuzzel** — application launcher
-- **Hyprland** — Wayland compositor configuration and scripts
+- **Hyprland** — Wayland compositor configuration (Lua-based, via hyprlua) and scripts
 - **i3** — X11 tiling window manager
+- **Labwc** — Wayland stacking compositor (wlroots-based)
 - **Mango** — MangoHud overlay configuration
 - **Niri** — scrollable-tiling Wayland compositor
-- **Waybar** — status bar for Hyprland and Niri
+- **Waybar** — status bar for Hyprland, Niri, and Labwc
 - **Home files** — `.bashrc`, `.zshrc`, `.xinitrc`
 - **Tokyonight** — GTK/Cinnamon/GNOME Shell themes (Dark & Light, hdpi, xhdpi)
 
@@ -35,13 +36,25 @@ A collection of personal Linux dotfiles for shell, terminal, window managers, st
 │   ├── hypr/
 │   │   ├── scripts/
 │   │   │   ├── randwall
+│   │   │   ├── restart-waybar
 │   │   │   └── set_wall
-│   │   ├── autostart.conf
-│   │   ├── environments.conf
-│   │   ├── hyprland.conf
-│   │   └── keybinds.conf
+│   │   ├── appearance.lua
+│   │   ├── autostart.lua
+│   │   ├── env.lua
+│   │   ├── hyprland.lua
+│   │   ├── input.lua
+│   │   ├── keybinds.lua
+│   │   ├── monitors.lua
+│   │   └── rules.lua
 │   ├── i3/
 │   │   └── config
+│   ├── labwc/
+│   │   ├── scripts/
+│   │   │   └── restart-waybar
+│   │   ├── autostart
+│   │   ├── environment
+│   │   ├── menu.xml
+│   │   └── rc.xml
 │   ├── mango/
 │   │   └── config.conf
 │   ├── niri/
@@ -51,7 +64,9 @@ A collection of personal Linux dotfiles for shell, terminal, window managers, st
 │   │   └── config.kdl
 │   └── waybar/
 │       ├── config-hyprland
+│       ├── config-labwc
 │       ├── config-niri
+│       ├── style-labwc.css
 │       └── style.css
 ├── home/
 │   ├── .bashrc
@@ -78,11 +93,12 @@ Application configuration files installed into `~/.config/`.
 | `alacritty/`  | Alacritty terminal configuration                         |
 | `fish/`       | Fish shell config, plugins, functions, and completions   |
 | `fuzzel/`     | Fuzzel launcher configuration                            |
-| `hypr/`       | Hyprland configuration and helper scripts                |
+| `hypr/`       | Hyprland configuration (Lua, via hyprlua) and helper scripts |
 | `i3/`         | i3 window manager configuration                          |
+| `labwc/`      | Labwc configuration and helper scripts                   |
 | `mango/`      | MangoHud configuration                                   |
 | `niri/`       | Niri configuration and helper scripts                    |
-| `waybar/`     | Waybar configuration for Hyprland and Niri               |
+| `waybar/`     | Waybar configuration for Hyprland, Niri, and Labwc        |
 
 ### `home/`
 Files copied directly into the home directory (`~/`):

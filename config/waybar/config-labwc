@@ -1,0 +1,105 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "output": "DVI-D-1",
+    "height": 46,
+    "spacing": 0,
+
+    "modules-left": [
+        "custom/start",
+        "wlr/taskbar"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "ext/workspaces",
+        "tray",
+        "memory",
+        "network",
+        "wireplumber",
+        "battery",
+        "clock"
+    ],
+
+    "custom/start": {
+        "format": "",
+        "tooltip-format": "Пуск",
+        "on-click": "fuzzel"
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 22,
+        "icon-theme": "Tokyonight-Dark",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "all-outputs": true
+    },
+
+    "ext/workspaces": {
+        "format": "{id}",
+        "sort-by-id": true,
+        "on-click": "activate",
+        "format-icons": {
+            "active": "󱓻",
+            "default": ""
+        }
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "󰍛 {}%",
+        "max-length": 10,
+        "on-click": "gnome-system-monitor"
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+
+    "clock": {
+        "tooltip-format": "{calendar}",
+        "format-alt": "  {:%a, %d %b %Y}",
+        "format": "  {:%H:%M }"
+    },
+
+    "network": {
+        "format-wifi": "{icon}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "󰀂",
+        "format-alt": "󱛇",
+        "format-disconnected": "󰖪",
+        "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 5
+    },
+
+    "wireplumber": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰",
+        "tooltip-format": "Volume : {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰖀", "󰕾", ""]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 1
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+            "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "tooltip": false
+    }
+}

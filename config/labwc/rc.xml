@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<labwc_config>
+
+  <!--
+    Портировано с ~/.config/hypr (dwindle-тайлинг) на labwc (стековый WM).
+    labwc не умеет динамический тайлинг/группы окон, поэтому вместо этого
+    сделан упор на Windows 11 - подобный сценарий: обычные перекрывающиеся
+    окна + snap по краям/углам (аналог Windows Snap), Super = Start menu.
+  -->
+
+  <core>
+    <decoration>client</decoration>
+    <gap>4</gap>
+    <adaptiveSync>no</adaptiveSync>
+    <allowTearing>no</allowTearing>
+  </core>
+
+  <placement>
+    <policy>cascade</policy>
+  </placement>
+
+  <focus>
+    <followMouse>yes</followMouse>
+    <followMouseRequiresMovement>yes</followMouseRequiresMovement>
+    <raiseOnFocus>no</raiseOnFocus>
+  </focus>
+
+  <windowSwitcher preview="yes" outlines="yes">
+    <osd show="yes" style="thumbnail" output="focused" thumbnailLabelFormat="%T" />
+  </windowSwitcher>
+
+  <theme>
+    <name>Tokyonight-Dark</name>
+    <cornerRadius>10</cornerRadius>
+    <dropShadows>yes</dropShadows>
+    <keepBorder>yes</keepBorder>
+    <font name="sans" size="10" />
+  </theme>
+
+  <desktops number="10" popupTime="0" />
+
+  <keyboard>
+    <default />
+
+    <!-- Super нажатый и отпущенный без других клавиш = Start menu (fuzzel) -->
+    <keybind key="Super_L" onRelease="yes">
+      <action name="Execute" command="fuzzel" />
+    </keybind>
+
+    <!-- Основные -->
+    <keybind key="W-Return">
+      <action name="Execute" command="alacritty" />
+    </keybind>
+    <keybind key="W-q">
+      <action name="Close" />
+    </keybind>
+    <keybind key="W-d">
+      <action name="Execute" command="fuzzel" />
+    </keybind>
+    <keybind key="W-S-d">
+      <action name="ToggleShowDesktop" />
+    </keybind>
+    <keybind key="W-e">
+      <action name="Execute" command="nautilus" />
+    </keybind>
+    <keybind key="W-S-n">
+      <action name="Execute" command="nautilus" />
+    </keybind>
+    <keybind key="W-f">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-a">
+      <action name="ToggleMaximize" />
+    </keybind>
+
+    <!-- Изменение размера окна (грубый аналог resize из Hyprland) -->
+    <keybind key="W-S-Right">
+      <action name="ResizeRelative" right="30" />
+    </keybind>
+    <keybind key="W-S-Left">
+      <action name="ResizeRelative" right="-30" />
+    </keybind>
+    <keybind key="W-S-Down">
+      <action name="ResizeRelative" bottom="30" />
+    </keybind>
+    <keybind key="W-S-Up">
+      <action name="ResizeRelative" bottom="-30" />
+    </keybind>
+
+    <!-- Рабочие столы (охватывают оба монитора, в labwc нет привязки
+         рабочего стола к конкретному монитору, как в hyprland) -->
+    <keybind key="W-1"><action name="GoToDesktop" to="1" /></keybind>
+    <keybind key="W-2"><action name="GoToDesktop" to="2" /></keybind>
+    <keybind key="W-3"><action name="GoToDesktop" to="3" /></keybind>
+    <keybind key="W-4"><action name="GoToDesktop" to="4" /></keybind>
+    <keybind key="W-5"><action name="GoToDesktop" to="5" /></keybind>
+    <keybind key="W-6"><action name="GoToDesktop" to="6" /></keybind>
+    <keybind key="W-7"><action name="GoToDesktop" to="7" /></keybind>
+    <keybind key="W-8"><action name="GoToDesktop" to="8" /></keybind>
+    <keybind key="W-9"><action name="GoToDesktop" to="9" /></keybind>
+    <keybind key="W-0"><action name="GoToDesktop" to="10" /></keybind>
+
+    <keybind key="W-S-1"><action name="SendToDesktop" to="1" follow="no" /></keybind>
+    <keybind key="W-S-2"><action name="SendToDesktop" to="2" follow="no" /></keybind>
+    <keybind key="W-S-3"><action name="SendToDesktop" to="3" follow="no" /></keybind>
+    <keybind key="W-S-4"><action name="SendToDesktop" to="4" follow="no" /></keybind>
+    <keybind key="W-S-5"><action name="SendToDesktop" to="5" follow="no" /></keybind>
+    <keybind key="W-S-6"><action name="SendToDesktop" to="6" follow="no" /></keybind>
+    <keybind key="W-S-7"><action name="SendToDesktop" to="7" follow="no" /></keybind>
+    <keybind key="W-S-8"><action name="SendToDesktop" to="8" follow="no" /></keybind>
+    <keybind key="W-S-9"><action name="SendToDesktop" to="9" follow="no" /></keybind>
+    <keybind key="W-S-0"><action name="SendToDesktop" to="10" follow="no" /></keybind>
+
+    <keybind key="W-C-Right"><action name="GoToDesktop" to="right" /></keybind>
+    <keybind key="W-C-Left"><action name="GoToDesktop" to="left" /></keybind>
+
+    <!-- Переключение фокуса между мониторами -->
+    <keybind key="W-S-bracketright"><action name="FocusOutput" direction="right" /></keybind>
+    <keybind key="W-S-bracketleft"><action name="FocusOutput" direction="left" /></keybind>
+
+    <!-- Скриншоты (hyprshot заменён на grim+slurp, т.к. hyprshot завязан на hyprctl) -->
+    <keybind key="W-S-s">
+      <action name="Execute" command="bash -c 'grim -g &quot;$(slurp)&quot; - | tee $SCREENSHOT_DIR/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'" />
+    </keybind>
+    <keybind key="W-S-w">
+      <action name="Execute" command="bash -c 'grim - | tee $SCREENSHOT_DIR/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'" />
+    </keybind>
+
+    <!-- Системные -->
+    <keybind key="W-S-F10">
+      <action name="Execute" command="pkill -HUP kanshi" />
+    </keybind>
+    <keybind key="W-S-F11">
+      <action name="Execute" command="/home/neon/.config/labwc/scripts/restart-waybar" />
+    </keybind>
+    <keybind key="W-S-F12">
+      <action name="Exit" />
+    </keybind>
+
+    <!-- Медиаклавиши -->
+    <keybind key="XF86AudioRaiseVolume" allowWhenLocked="yes">
+      <action name="Execute" command="wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+" />
+    </keybind>
+    <keybind key="XF86AudioLowerVolume" allowWhenLocked="yes">
+      <action name="Execute" command="wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-" />
+    </keybind>
+    <keybind key="XF86AudioMute" allowWhenLocked="yes">
+      <action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" />
+    </keybind>
+    <keybind key="XF86AudioMicMute" allowWhenLocked="yes">
+      <action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" />
+    </keybind>
+    <keybind key="XF86AudioNext" allowWhenLocked="yes">
+      <action name="Execute" command="playerctl next" />
+    </keybind>
+    <keybind key="XF86AudioPause" allowWhenLocked="yes">
+      <action name="Execute" command="playerctl play-pause" />
+    </keybind>
+    <keybind key="XF86AudioPlay" allowWhenLocked="yes">
+      <action name="Execute" command="playerctl play-pause" />
+    </keybind>
+    <keybind key="XF86AudioPrev" allowWhenLocked="yes">
+      <action name="Execute" command="playerctl previous" />
+    </keybind>
+  </keyboard>
+
+  <mouse>
+    <default />
+  </mouse>
+
+  <libinput>
+    <device category="touchpad">
+      <naturalScroll>no</naturalScroll>
+    </device>
+  </libinput>
+
+</labwc_config>

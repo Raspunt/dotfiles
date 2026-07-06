@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<openbox_menu>
+  <menu id="root-menu" label="labwc">
+    <item label="Терминал">
+      <action name="Execute" command="alacritty" />
+    </item>
+    <item label="Файлы">
+      <action name="Execute" command="nautilus" />
+    </item>
+    <item label="Запуск приложения">
+      <action name="Execute" command="fuzzel" />
+    </item>
+    <separator />
+    <item label="Перезапустить waybar">
+      <action name="Execute" command="/home/neon/.config/labwc/scripts/restart-waybar" />
+    </item>
+    <item label="Обновить конфиг labwc">
+      <action name="Reconfigure" />
+    </item>
+    <separator />
+    <item label="Выход из labwc">
+      <action name="Exit" />
+    </item>
+  </menu>
+</openbox_menu>
