@@ -122,6 +122,7 @@ Supported environments:
 | Metacity     |
 | Xfwm4        |
 | Plank        |
+| Openbox      |
 
 ## Installation
 
