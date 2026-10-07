@@ -66,8 +66,9 @@ A collection of personal Linux dotfiles for shell, terminal, window managers, st
 │       ├── config-hyprland
 │       ├── config-labwc
 │       ├── config-niri
+│       ├── style-hyprland.css
 │       ├── style-labwc.css
-│       └── style.css
+│       └── style-niri.css
 ├── home/
 │   ├── .bashrc
 │   ├── .xinitrc

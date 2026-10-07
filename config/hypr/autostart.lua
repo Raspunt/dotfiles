@@ -1,6 +1,6 @@
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar -c ~/.config/waybar/config-hyprland")
+    hl.exec_cmd("waybar -c ~/.config/waybar/config-hyprland -s ~/.config/waybar/style-hyprland.css")
     hl.exec_cmd("/usr/lib/mate-polkit/polkit-mate-authentication-agent-1")
-    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("awww-daemon")
     hl.exec_cmd("/bin/bash -c 'sleep 0.5; /home/neon/.config/hypr/scripts/randwall'")
 end)

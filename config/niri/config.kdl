@@ -269,7 +269,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
-spawn-at-startup "waybar" "-c" "/home/neon/.config/waybar/config-niri"
+spawn-at-startup "waybar" "-c" "/home/neon/.config/waybar/config-niri" "-s" "/home/neon/.config/waybar/style-niri.css"
 
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-at-startup "/home/neon/.config/niri/scripts/set_wallpets"

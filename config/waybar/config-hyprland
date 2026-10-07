@@ -5,18 +5,13 @@
     "spacing": 0,
     "height": 34,
     "modules-left": [
-        "custom/logo",
-        "hyprland/workspaces"
+        "group/left"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
-        "tray",
-        "clock",
-        "memory",
-        "network",
-        "wireplumber"
+        "group/right"
     ],
     "hyprland/workspaces": {
         "on-click": "activate",
@@ -64,7 +59,13 @@
     },
     "network": {
         "format-wifi": "{icon}",
-        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
         "format-ethernet": "󰀂",
         "format-alt": "󱛇",
         "format-disconnected": "󰖪",
@@ -82,7 +83,11 @@
         "format-muted": "󰝟",
         "format-icons": {
             "headphone": "",
-            "default": ["󰖀", "󰕾", ""]
+            "default": [
+                "󰖀",
+                "󰕾",
+                ""
+            ]
         },
         "on-click": "pavucontrol",
         "scroll-step": 1
@@ -132,5 +137,22 @@
         "format": "⏻",
         "on-click": "wlogout",
         "tooltip": false
+    },
+    "group/left": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/logo",
+            "hyprland/workspaces"
+        ]
+    },
+    "group/right": {
+        "orientation": "horizontal",
+        "modules": [
+            "tray",
+            "clock",
+            "memory",
+            "network",
+            "wireplumber"
+        ]
     }
 }
