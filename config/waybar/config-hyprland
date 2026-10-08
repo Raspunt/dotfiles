@@ -67,13 +67,14 @@
             "󰤨"
         ],
         "format-ethernet": "󰀂",
-        "format-alt": "󱛇",
+        "format-alt": "󰀂 {ifname}  {ipaddr}  ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "format-disconnected": "󰖪",
         "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
         "interval": 5,
-        "nospacing": 1
+        "nospacing": 1,
+        "on-click-right": "alacritty -e nmtui"
     },
     "wireplumber": {
         "format": "{icon}",
@@ -150,9 +151,24 @@
         "modules": [
             "tray",
             "clock",
+            "cpu",
+            "custom/gpu",
             "memory",
             "network",
             "wireplumber"
         ]
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "󰻠 {usage}%",
+        "tooltip-format": "CPU: {usage}%\n{avg_frequency} GHz",
+        "on-click": "gnome-system-monitor"
+    },
+    "custom/gpu": {
+        "exec": "~/.config/waybar/scripts/gpu.sh",
+        "return-type": "json",
+        "interval": 2,
+        "tooltip": true,
+        "on-click": "nvidia-settings"
     }
 }

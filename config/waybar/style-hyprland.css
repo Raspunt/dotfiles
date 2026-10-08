@@ -6,17 +6,16 @@
   font-size: 12px;
 }
 
-/* Сплошная панель на всю ширину */
+/* Tokyo Night: плоская панель, цвет только на иконках и акцентах */
 window#waybar {
-  background-color: #282828;
-  color: #ebdbb2;
+  background-color: #1a1b26;
+  color: #c0caf5;
 }
 
 window#waybar.hidden {
   opacity: 0.5;
 }
 
-/* Группы без собственного фона */
 #left,
 #right,
 #window {
@@ -24,11 +23,9 @@ window#waybar.hidden {
   margin: 0;
 }
 
-#left { padding: 0 6px; }
-#right { padding: 0 8px; }
-
-/* Модули внутри островков: без своего фона, один нейтральный цвет */
 #custom-logo,
+#cpu,
+#custom-gpu,
 #memory,
 #wireplumber,
 #network,
@@ -38,18 +35,27 @@ window#waybar.hidden {
 #backlight,
 #custom-power {
   background-color: transparent;
-  color: #ebdbb2;
+  color: #c0caf5;
   margin: 0;
   padding: 0 10px;
 }
 
 #custom-logo {
   font-size: 16px;
-  color: #fabd2f;
-  padding: 0 10px 0 6px;
+  color: #7aa2f7;
+  padding: 0 10px 0 8px;
 }
 
-/* Workspace: тусклые, активный в акцентном цвете */
+#clock { color: #bb9af7; }
+#cpu { color: #e0af68; }
+#custom-gpu { color: #73daca; }
+#memory { color: #ff9e64; }
+#network { color: #7dcfff; }
+#wireplumber { color: #9ece6a; }
+#battery { color: #9ece6a; }
+#backlight { color: #e0af68; }
+
+/* Workspace: тусклые, активный ярко-синий */
 #workspaces {
   background-color: transparent;
 }
@@ -61,37 +67,37 @@ window#waybar.hidden {
   margin: 5px 2px;
   border-radius: 8px;
   background-color: transparent;
-  color: #928374;
+  color: #565f89;
 }
 
 #workspaces button:hover {
-  background-color: rgba(235, 219, 178, 0.12);
-  color: #ebdbb2;
+  background-color: rgba(122, 162, 247, 0.15);
+  color: #7aa2f7;
 }
 
 #workspaces button.active {
-  background-color: #fabd2f;
-  color: #282828;
+  background-color: #7aa2f7;
+  color: #1a1b26;
   padding: 3px 16px;
 }
 
 #workspaces button.urgent {
-  background-color: #fb4934;
-  color: #282828;
+  background-color: #f7768e;
+  color: #1a1b26;
 }
 
-/* Акцент только на важном */
-#battery.warning { color: #fe8019; }
+/* Состояния */
+#battery.warning { color: #e0af68; }
 #battery.critical,
-#battery.urgent { color: #fb4934; }
-#battery.charging { color: #b8bb26; }
-#wireplumber.muted { color: #928374; }
-#network.disconnected { color: #fb4934; }
+#battery.urgent { color: #f7768e; }
+#battery.charging { color: #9ece6a; }
+#wireplumber.muted { color: #565f89; }
+#network.disconnected { color: #f7768e; }
 
 /* Заголовок окна по центру */
 #window {
   padding: 0 16px;
-  color: #ebdbb2;
+  color: #a9b1d6;
 }
 
 window#waybar.empty #window {
@@ -101,11 +107,11 @@ window#waybar.empty #window {
 tooltip {
   border-radius: 10px;
   padding: 10px;
-  background-color: #1d2021;
-  border: 1px solid #504945;
+  background-color: #16161e;
+  border: 1px solid #414868;
 }
 
 tooltip label {
   padding: 3px;
-  color: #ebdbb2;
+  color: #c0caf5;
 }

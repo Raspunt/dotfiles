@@ -66,6 +66,8 @@ A collection of personal Linux dotfiles for shell, terminal, window managers, st
 │       ├── config-hyprland
 │       ├── config-labwc
 │       ├── config-niri
+│       ├── scripts/
+│       │   └── gpu.sh
 │       ├── style-hyprland.css
 │       ├── style-labwc.css
 │       └── style-niri.css
